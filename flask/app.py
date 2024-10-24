@@ -26,7 +26,11 @@ if app.config['DEBUG']:
 else:
     check_db_file_permissions()
     real_db = SqliteDatabase('/data/database.db')
-    socketio = SocketIO(app)
+    if app.config['EXTERNAL_URL']:
+        socketio = SocketIO(app, cors_allowed_origins=[app.config['EXTERNAL_URL']])
+    else:
+        socketio = SocketIO(app)
+        
 database_proxy.initialize(real_db)
 if database_proxy.is_closed():
     database_proxy.connect()

@@ -12,6 +12,7 @@ RUN adduser -H -D -u 1001 -G root default
 WORKDIR /app
 COPY --chown=1001:0 flask/ ./
 COPY --chown=1001:0 --from=node_builder /angular/dist/self-host-planning-poker ./static
+ENV EXTERNAL_URL=http://localhost:8000
 RUN pip install --upgrade pip && \
   pip install --requirement requirements.txt && \
   mkdir /data && \

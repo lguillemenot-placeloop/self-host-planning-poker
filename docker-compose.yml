@@ -4,8 +4,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    environment:
-      - EXTERNAL_URL=https://planning-poker.placeloop.io
     ports:
       - 80:8000
     volumes:

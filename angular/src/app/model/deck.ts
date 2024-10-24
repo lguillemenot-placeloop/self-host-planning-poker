@@ -25,7 +25,7 @@ export const decks: Deck[] = [
       { value: 34, display: 34 },
       { value: 55, display: 55 },
       { value: 89, display: 89 },
-    ]
+    ],
   },
   {
     name: 'MODIFIED_FIBONACCI',
@@ -42,7 +42,7 @@ export const decks: Deck[] = [
       { value: 20, display: 20 },
       { value: 40, display: 40 },
       { value: 100, display: 100 },
-    ]
+    ],
   },
   {
     name: 'POWERS',
@@ -56,7 +56,7 @@ export const decks: Deck[] = [
       { value: 16, display: 16 },
       { value: 32, display: 32 },
       { value: 64, display: 64 },
-    ]
+    ],
   },
   {
     name: 'TRUST_VOTE',
@@ -68,7 +68,7 @@ export const decks: Deck[] = [
       { value: 3, display: 3 },
       { value: 4, display: 4 },
       { value: 5, display: 5 },
-    ]
+    ],
   },
   {
     name: 'T_SHIRTS',
@@ -81,19 +81,51 @@ export const decks: Deck[] = [
       { value: 5, display: 'L' },
       { value: 6, display: 'XL' },
       { value: 7, display: 'XXL' },
-    ]
-  }
-]
+    ],
+  },
+  {
+    name: 'NUMBERS',
+    textValues: false,
+    values: [
+      { value: 1, display: 1 },
+      { value: 2, display: 2 },
+      { value: 3, display: 3 },
+      { value: 4, display: 4 },
+      { value: 5, display: 5 },
+      { value: 6, display: 6 },
+      { value: 7, display: 7 },
+      { value: 8, display: 8 },
+      { value: 9, display: 9 },
+      { value: 10, display: 10 },
+      { value: 11, display: 11 },
+      { value: 12, display: 12 },
+      { value: 13, display: 13 },
+      { value: 14, display: 14 },
+      { value: 15, display: 15 },
+      { value: 16, display: 16 },
+      { value: 17, display: 17 },
+      { value: 18, display: 18 },
+      { value: 19, display: 19 },
+      { value: 20, display: 20 },
+    ],
+  },
+];
 
-export const decksDict: { [key: string]: Deck } = decks.reduce((result: { [key: string]: Deck }, deck: Deck) => {
-  result[deck.name] = deck;
-  return result;
-}, {});
+export const decksDict: { [key: string]: Deck } = decks.reduce(
+  (result: { [key: string]: Deck }, deck: Deck) => {
+    result[deck.name] = deck;
+    return result;
+  },
+  {}
+);
 
 export function displayDeckValues(deck: Deck): string {
-  return deck.values.map(v => v.display).join(', ');
+  return deck.values.map((v) => v.display).join(', ');
 }
 
-export function displayCardValue(deck: Deck, cardValue: number): string | number | undefined {
-  return deck.values.find(c => c.value === cardValue)?.display;
+export function displayCardValue(
+  deck: Deck,
+  cardValue: number
+): string | number | undefined {
+  return deck.values.find((c) => c.value === cardValue)?.display;
 }
